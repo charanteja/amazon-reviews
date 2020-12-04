@@ -9,6 +9,7 @@ case class Review(reviewerID: String,
                   reviewText: String,
                   overall: Double,
                   summary: String,
-                  unixReviewTime: Timestamp,
-                  reviewTime: String)
+                  unixReviewTime: Long,
+                  reviewTime: String,
+                  reviewTimestamp: Timestamp)
 
