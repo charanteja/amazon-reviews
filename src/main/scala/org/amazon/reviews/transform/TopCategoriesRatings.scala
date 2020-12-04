@@ -1,4 +1,4 @@
-package org.amazon.reviews.insights
+package org.amazon.reviews.transform
 
 import org.amazon.reviews.SparkFactory
 import org.amazon.reviews.config.CmdConfig

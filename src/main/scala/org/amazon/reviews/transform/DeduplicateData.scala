@@ -1,4 +1,4 @@
-package org.amazon.reviews.insights
+package org.amazon.reviews.transform
 
 import org.amazon.reviews.SparkFactory
 import org.amazon.reviews.config.CmdConfig
@@ -6,7 +6,7 @@ import org.amazon.reviews.types._
 import org.apache.spark.sql.{Dataset, SaveMode, SparkSession}
 import scopt.OParser.parse
 
-object DeduplicateReviewsMetadata {
+object DeduplicateData {
 
   def main(args: Array[String]) {
     parse(CmdConfig.parserSpec(), args, CmdConfig()) match {
