@@ -4,8 +4,7 @@ import scopt.OParser
 import scopt.OParser.sequence
 
 case class CmdConfig(sourceDir: String = "",
-                     targetDir: String = "",
-                     partitions: Int = 10)
+                     targetDir: String = "")
 object CmdConfig {
 
   def parserSpec(): OParser[String, CmdConfig] = {
@@ -20,11 +19,7 @@ object CmdConfig {
       opt[String]("targetDir")
         .action((x, c) => c.copy(targetDir = x))
         .text(s"Location of the target dataset(default: ${default.targetDir})")
-        .optional(),
-      opt[Int]("partitions")
-        .action((x, c) => c.copy(partitions = x))
-        .text(s"the number of partitions of the produced dataset (default: ${default.partitions})")
-        .optional(),
+        .optional()
     )
   }
 }

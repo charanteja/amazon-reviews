@@ -4,16 +4,13 @@ import org.apache.spark.sql.SparkSession
 
 object SparkFactory {
 
-  def createSparkSession(sparkAppName: String): SparkSession = {
-
-    SparkSession
+  lazy val sparkSession: SparkSession = SparkSession
       .builder()
-      .appName(sparkAppName)
+      .appName("Spark App")
       .enableHiveSupport()
       .getOrCreate()
-  }
 
-  def stopSparkSession(sparkSession: SparkSession): Unit = {
+  def stopSparkSession(): Unit = {
     sparkSession.stop()
   }
 }

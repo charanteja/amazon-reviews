@@ -33,3 +33,15 @@ For example, to run spark job:
 ### Building Docker Image
 
 ### Deploy in Kubernetes
+
+### Analysis
+To do quick analysis of data, we can start a new zeppelin server(https://zeppelin.apache.org/)
+
+`bin/zeppelin-daemon.sh start`
+
+Link to sample notebook: <zeppelin notebook link>
+
+### References
+1. Project on spark structured streaming concept:
+https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html
+2. Argo was used for pipeline orchestration: https://argoproj.github.io/argo/
