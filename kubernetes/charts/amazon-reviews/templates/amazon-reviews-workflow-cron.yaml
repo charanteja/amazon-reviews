@@ -1,0 +1,105 @@
+apiVersion: argoproj.io/v1alpha1
+kind: CronWorkflow
+metadata:
+  name: {{ template "fullname" . }}-workflow-cron
+spec:
+  schedule: "{{ .Values.schedule.default }}"
+  concurrencyPolicy: "Forbid"
+  startingDeadlineSeconds: 0
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  workflowSpec:
+    entrypoint: workflow-dag
+    templates:
+    - name: workflow-dag
+      dag:
+        tasks:
+        ## Download data
+        - name: download-data-step
+          template: download-data
+        ## Load Reviews data
+        - name: load-reviews-step
+          dependencies: [download-data-step]
+          template: load-reviews
+        ## Load Reviews data
+        - name: load-metadata-step
+          dependencies: [download-data-step]
+          template: load-metadata
+        ## Deduplicate data
+        - name: dedup-data-step
+          dependencies: [load-reviews-step, load-metadata-step]
+          template: dedup-data
+        ## Compute Top Categories
+        - name: top-categories-step
+          dependencies: [dedup-data-step]
+          template: top-categories
+
+    - name: download-data
+      container:
+        name: download-data-container
+        image: {{ .Values.image }}:{{ .Values.tag }}
+        imagePullPolicy: Never
+        command: [bash, /etc/config/download-data.sh]
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config
+      volumes:
+      - name: config-volume
+        configMap:
+          name: {{ template "fullname" . }}-configmap
+
+    - name: load-reviews
+      container:
+        name: load-reviews-container
+        image: {{ .Values.image }}:{{ .Values.tag }}
+        imagePullPolicy: Never
+        command: [bash, /etc/config/spark-load-reviews.sh]
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config
+      volumes:
+      - name: config-volume
+        configMap:
+          name: {{ template "fullname" . }}-configmap
+
+    - name: load-metadata
+      container:
+        name: load-metadata-container
+        image: {{ .Values.image }}:{{ .Values.tag }}
+        imagePullPolicy: Never
+        command: [bash, /etc/config/spark-load-metadata.sh]
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config
+      volumes:
+      - name: config-volume
+        configMap:
+          name: {{ template "fullname" . }}-configmap
+
+    - name: dedup-data
+      container:
+        name: dedup-data-container
+        image: {{ .Values.image }}:{{ .Values.tag }}
+        imagePullPolicy: Never
+        command: [bash, /etc/config/spark-deduplicate-data.sh]
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config
+      volumes:
+      - name: config-volume
+        configMap:
+          name: {{ template "fullname" . }}-configmap
+
+    - name: top-categories
+      container:
+        name: top-categories-container
+        image: {{ .Values.image }}:{{ .Values.tag }}
+        imagePullPolicy: Never
+        command: [bash, /etc/config/spark-top-categories-ratings.sh]
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config
+      volumes:
+      - name: config-volume
+        configMap:
+          name: {{ template "fullname" . }}-configmap

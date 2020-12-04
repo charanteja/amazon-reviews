@@ -1,0 +1,11 @@
+image: amazon-reviews
+tag: latest
+
+resources:
+  cronjob:
+    light:
+      cpu: 200m
+      memory: 0.5Gi
+    default:
+      cpu: 500m
+      memory: 1Gi
