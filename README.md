@@ -12,6 +12,11 @@ To build the project, please run:
 sbt assembly
 ```
 
+### Testing the project
+To run tests, please run:
+```
+sbt test
+```
 It will create a fat jar inside `target` folder
 
 ### Running the project locally
@@ -63,4 +68,4 @@ Link to sample [notebook](notebooks/DataLoad.zpln)
 ### References
 * Project on spark structured streaming concept:
 https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html
-* Argo was used for pipeline orchestration: https://argoproj.github.io/argo/
+* Argo workflows was used for pipeline orchestration: https://argoproj.github.io/argo/

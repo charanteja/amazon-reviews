@@ -11,7 +11,8 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-streaming" % "3.0.1" % "provided",
   "org.apache.spark" %% "spark-hive" % "3.0.1" % "provided",
   "com.github.scopt" %% "scopt" % "4.0.0",
-  "org.apache.logging.log4j" %% "log4j-api-scala" % "11.0"
+  "org.apache.logging.log4j" %% "log4j-api-scala" % "12.0",
+  "org.apache.logging.log4j" % "log4j-core" % "2.13.0" % Runtime
 )
 
 assemblyJarName in assembly := "amazon-reviews-fat.jar"

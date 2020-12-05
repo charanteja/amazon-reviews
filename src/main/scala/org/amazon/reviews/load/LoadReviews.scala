@@ -31,7 +31,7 @@ object LoadReviews extends RunSpark {
       .option("path", s"${config.targetDir}")
       .start()
 
-    // Wait for termination signal. Timing out here for the sake of demo
-    query.awaitTermination(timeoutMs = 10000)
+    // Wait for termination signal
+    query.awaitTermination()
   }
 }

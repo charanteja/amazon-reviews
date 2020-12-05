@@ -13,6 +13,14 @@ import org.apache.spark.sql.{Dataset, SaveMode, SparkSession}
   */
 object DeduplicateData extends RunSpark {
 
+  /**
+    * Using type as parameter to deduplicate function
+    */
+  def deduplicate[T](input: Dataset[T])(implicit spark: SparkSession): Dataset[T] = {
+
+    input.distinct
+  }
+
   def extract(config: CmdConfig)(implicit spark: SparkSession): Unit = {
     import spark.implicits._
 
@@ -23,10 +31,10 @@ object DeduplicateData extends RunSpark {
     val metadata: Dataset[Metadata] = spark.read.parquet(s"${config.sourceDir}/metadata").as[Metadata]
 
     logger.info("Deduplicating reviews data")
-    val distinctReviews: Dataset[Review] = reviews.distinct
+    val distinctReviews: Dataset[Review] = deduplicate[Review](reviews)
 
     logger.info("Deduplicating metadata data")
-    val distinctMetadata: Dataset[Metadata] = metadata.distinct
+    val distinctMetadata: Dataset[Metadata] = deduplicate[Metadata](metadata)
 
     /**
       * Repartition data to make sure data is distributed

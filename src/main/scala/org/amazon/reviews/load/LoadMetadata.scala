@@ -21,6 +21,7 @@ object LoadMetadata extends RunSpark {
       .json(s"${config.sourceDir}")
       .drop("salesRank", "_corrupt_record")
       .as[Metadata]
+
     logger.info("Writing reviews data in micro batch mode")
     //TODO Optimize window size
     /**
@@ -33,7 +34,7 @@ object LoadMetadata extends RunSpark {
       .option("path", s"${config.targetDir}")
       .start()
 
-    // Wait for termination signal. Timing out here for the sake of demo
-    query.awaitTermination(timeoutMs = 10000)
+    // Wait for termination signal
+    query.awaitTermination()
   }
 }
