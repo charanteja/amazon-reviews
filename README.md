@@ -14,10 +14,13 @@ sbt assembly
 
 It will create a fat jar inside `target` folder
 
+### Running the project locally
+To proceed with next steps, it is assumed there is running hadoop cluster at `hdfs://localhost:9000/`
 ### Submit Spark Jobs
-You can submit spark jobs using this syntax
+Once you have the assembly jar, you can submit spark jobs using this syntax.
+Other examples can be found [here](kubernetes/charts/config)
 
-For example, to run spark job:
+For example, to run load reviews spark job:
 ```
    bin/spark-submit \
      --class org.amazon.reviews.load.LoadReviews \
@@ -31,17 +34,33 @@ For example, to run spark job:
 ```
 
 ### Building Docker Image
+To build docker image, please run:
+```
+docker run -t amazon-reviews:latest .
+```
 
 ### Deploy in Kubernetes
+To deploy in Kubernetes, you need to install [helm](https://helm.sh/docs/intro/install/)
 
-### Analysis
-To do quick analysis of data, we can start a new zeppelin server(https://zeppelin.apache.org/)
+```
+helm install amazon-reviews kubernetes/charts/amazon-reviews
+```
+Since the chart uses Argo workflows, these CRDs should be present in kubernetes environment.
+Argo can be installed from [here](https://argoproj.github.io/argo/)
 
-`bin/zeppelin-daemon.sh start`
+You should also have running Spark and Hadoop clusters in kubernetes to submit spark jobs and manage DFS
+### Analyzing data
+To do quick analysis of data, we can start a new zeppelin server
+Zeppelin has a notebook based interface and supports a range of interpreters
+More info about zeppelin can be found [here](https://zeppelin.apache.org/)
 
-Link to sample notebook: <zeppelin notebook link>
+To start zeppelin server: `bin/zeppelin-daemon.sh start`
+
+Access zeppelin UI here: `http://localhost:8080/`
+
+Link to sample [notebook](notebooks/DataLoad.zpln)
 
 ### References
-1. Project on spark structured streaming concept:
+* Project on spark structured streaming concept:
 https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html
-2. Argo was used for pipeline orchestration: https://argoproj.github.io/argo/
+* Argo was used for pipeline orchestration: https://argoproj.github.io/argo/
