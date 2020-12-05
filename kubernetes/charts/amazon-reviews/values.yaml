@@ -9,3 +9,6 @@ resources:
     default:
       cpu: 500m
       memory: 1Gi
+
+schedule:
+  default: "0 */8 * * *"

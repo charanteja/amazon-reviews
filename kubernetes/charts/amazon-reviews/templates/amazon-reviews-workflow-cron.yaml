@@ -9,29 +9,29 @@ spec:
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 1
   workflowSpec:
-    entrypoint: workflow-dag
+    entrypoint: {{ template "fullname" . }}-workflow-dag
     templates:
-    - name: workflow-dag
+    - name: {{ template "fullname" . }}-workflow-dag
       dag:
         tasks:
         ## Download data
-        - name: download-data-step
+        - name: {{ template "fullname" . }}-download-data-step
           template: download-data
         ## Load Reviews data
-        - name: load-reviews-step
-          dependencies: [download-data-step]
+        - name: {{ template "fullname" . }}-load-reviews-step
+          dependencies: [{{ template "fullname" . }}-download-data-step]
           template: load-reviews
         ## Load Reviews data
-        - name: load-metadata-step
-          dependencies: [download-data-step]
+        - name: {{ template "fullname" . }}-load-metadata-step
+          dependencies: [{{ template "fullname" . }}-download-data-step]
           template: load-metadata
         ## Deduplicate data
-        - name: dedup-data-step
-          dependencies: [load-reviews-step, load-metadata-step]
+        - name: {{ template "fullname" . }}-dedup-data-step
+          dependencies: [{{ template "fullname" . }}-load-reviews-step, {{ template "fullname" . }}-load-metadata-step]
           template: dedup-data
         ## Compute Top Categories
-        - name: top-categories-step
-          dependencies: [dedup-data-step]
+        - name: {{ template "fullname" . }}-top-categories-step
+          dependencies: [{{ template "fullname" . }}-dedup-data-step]
           template: top-categories
 
     - name: download-data
