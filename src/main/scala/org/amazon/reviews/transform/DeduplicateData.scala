@@ -8,8 +8,10 @@ import org.apache.spark.sql.{Dataset, SaveMode, SparkSession}
 /**
   * Spark batch job to deduplicate data
   * Since deduplication needs to be on full data,
-  * its better to have a batch job that runs at
-  * fixed interval
+  * implemented a batch job that runs at fixed interval
+  * The jobs also partitions the data so that
+  * file sizes are optimized for spark executors
+  * to read and process the data effectively
   */
 object DeduplicateData extends RunSpark {
 

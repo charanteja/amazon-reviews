@@ -10,6 +10,8 @@ import org.apache.spark.sql.{Dataset, SparkSession}
 /**
   * Spark streaming job to process reviews data
   * Assumes new data comes in a hdfs directory as separate files
+  * In general, it good to have the data parittioned in a way
+  * that downstream processing becomes easy
   */
 object LoadReviews extends RunSpark {
 
