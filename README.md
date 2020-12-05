@@ -63,7 +63,9 @@ To start zeppelin server: `bin/zeppelin-daemon.sh start`
 
 Access zeppelin UI here: `http://localhost:8080/`
 
-Link to sample [notebook](notebooks/DataLoad.zpln)
+Link to sample [zeppelin notebook](notebooks/AmazonReviewsDemo.zpln)
+
+Same notebook can be opened in [iPython](notebooks/AmazonReviewsDemo.ipynb)
 
 ### References
 * Project on spark structured streaming concept:

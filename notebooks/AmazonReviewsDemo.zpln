@@ -1,0 +1,831 @@
+﻿{
+  "paragraphs": [
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607200934239_2080235203",
+      "id": "paragraph_1607200934239_2080235203",
+      "dateCreated": "2020-12-05T21:42:14+0100",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:11589",
+      "text": "%md\n## Load Reviews",
+      "dateUpdated": "2020-12-05T21:42:48+0100",
+      "dateFinished": "2020-12-05T21:42:48+0100",
+      "dateStarted": "2020-12-05T21:42:48+0100",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Load Reviews</h2>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "val reviews = spark.read.parquet(s\"hdfs://localhost:9000/data/parquet/reviews\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-12-05T21:38:21+0100",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mreviews\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [asin: string, helpful: array<bigint> ... 8 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://c02xh0ywjgh8-c:4047/jobs/job?id=11",
+              "$$hashKey": "object:10044"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1606920376252_1052183223",
+      "id": "paragraph_1606920376252_1052183223",
+      "dateCreated": "2020-12-02T15:46:16+0100",
+      "dateStarted": "2020-12-05T21:38:21+0100",
+      "dateFinished": "2020-12-05T21:38:21+0100",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:9544"
+    },
+    {
+      "text": "reviews.printSchema",
+      "user": "anonymous",
+      "dateUpdated": "2020-12-05T21:38:30+0100",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- asin: string (nullable = true)\n |-- helpful: array (nullable = true)\n |    |-- element: long (containsNull = true)\n |-- overall: double (nullable = true)\n |-- reviewText: string (nullable = true)\n |-- reviewTime: string (nullable = true)\n |-- reviewerID: string (nullable = true)\n |-- reviewerName: string (nullable = true)\n |-- summary: string (nullable = true)\n |-- unixReviewTime: long (nullable = true)\n |-- reviewTimestamp: timestamp (nullable = true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1606920470038_1475557345",
+      "id": "paragraph_1606920470038_1475557345",
+      "dateCreated": "2020-12-02T15:47:50+0100",
+      "dateStarted": "2020-12-05T21:38:30+0100",
+      "dateFinished": "2020-12-05T21:38:30+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:9545"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607200953162_1487224649",
+      "id": "paragraph_1607200953162_1487224649",
+      "dateCreated": "2020-12-05T21:42:33+0100",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:11693",
+      "text": "%md\n## Load Metadata",
+      "dateUpdated": "2020-12-05T21:43:00+0100",
+      "dateFinished": "2020-12-05T21:43:00+0100",
+      "dateStarted": "2020-12-05T21:43:00+0100",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Load Metadata</h2>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "val metadata = spark.read.parquet(s\"hdfs://localhost:9000/data/parquet/metadata\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-12-05T21:40:36+0100",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mmetadata\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [asin: string, brand: string ... 6 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://c02xh0ywjgh8-c:4047/jobs/job?id=12",
+              "$$hashKey": "object:10154"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607200823865_386065883",
+      "id": "paragraph_1607200823865_386065883",
+      "dateCreated": "2020-12-05T21:40:23+0100",
+      "dateStarted": "2020-12-05T21:40:36+0100",
+      "dateFinished": "2020-12-05T21:40:36+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:9546"
+    },
+    {
+      "text": "metadata.printSchema",
+      "user": "anonymous",
+      "dateUpdated": "2020-12-05T21:40:39+0100",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- asin: string (nullable = true)\n |-- brand: string (nullable = true)\n |-- categories: array (nullable = true)\n |    |-- element: array (containsNull = true)\n |    |    |-- element: string (containsNull = true)\n |-- description: string (nullable = true)\n |-- imUrl: string (nullable = true)\n |-- price: double (nullable = true)\n |-- related: struct (nullable = true)\n |    |-- also_bought: array (nullable = true)\n |    |    |-- element: string (containsNull = true)\n |    |-- also_viewed: array (nullable = true)\n |    |    |-- element: string (containsNull = true)\n |    |-- bought_together: array (nullable = true)\n |    |    |-- element: string (containsNull = true)\n |    |-- buy_after_viewing: array (nullable = true)\n |    |    |-- element: string (containsNull = true)\n |-- title: string (nullable = true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607035242018_1008199582",
+      "id": "paragraph_1607035242018_1008199582",
+      "dateCreated": "2020-12-03T23:40:42+0100",
+      "dateStarted": "2020-12-05T21:40:39+0100",
+      "dateFinished": "2020-12-05T21:40:39+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:9547"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607200983503_2136149076",
+      "id": "paragraph_1607200983503_2136149076",
+      "dateCreated": "2020-12-05T21:43:03+0100",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:11809",
+      "text": "%md\n## Top Category Ratings",
+      "dateUpdated": "2020-12-05T21:43:14+0100",
+      "dateFinished": "2020-12-05T21:43:14+0100",
+      "dateStarted": "2020-12-05T21:43:14+0100",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Top Category Ratings</h2>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "val topCategoryRatings = spark.read.parquet(s\"hdfs://localhost:9000/data/parquet/top_category_ratings\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-12-05T21:41:30+0100",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mtopCategoryRatings\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [year: int, month: int ... 3 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://c02xh0ywjgh8-c:4047/jobs/job?id=13",
+              "$$hashKey": "object:10264"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607081370756_1143505165",
+      "id": "paragraph_1607081370756_1143505165",
+      "dateCreated": "2020-12-04T12:29:30+0100",
+      "dateStarted": "2020-12-05T21:41:30+0100",
+      "dateFinished": "2020-12-05T21:41:30+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:9548"
+    },
+    {
+      "text": "topCategoryRatings.printSchema",
+      "user": "anonymous",
+      "dateUpdated": "2020-12-05T21:41:50+0100",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- year: integer (nullable = true)\n |-- month: integer (nullable = true)\n |-- category: string (nullable = true)\n |-- total_sold_products: long (nullable = true)\n |-- average_rating: double (nullable = true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607082369888_1542806436",
+      "id": "paragraph_1607082369888_1542806436",
+      "dateCreated": "2020-12-04T12:46:09+0100",
+      "dateStarted": "2020-12-05T21:41:50+0100",
+      "dateFinished": "2020-12-05T21:41:50+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:9550"
+    },
+    {
+      "text": "topCategoryRatings.show(false)",
+      "user": "anonymous",
+      "dateUpdated": "2020-12-05T21:43:38+0100",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----+-----+-----------+-------------------+------------------+\n|year|month|category   |total_sold_products|average_rating    |\n+----+-----+-----------+-------------------+------------------+\n|1997|11   |Books      |1807               |4.425501432664756 |\n|1997|11   |Movies & TV|15                 |4.533333333333333 |\n|1997|11   |Movies     |12                 |4.5               |\n|1997|11   |CDs & Vinyl|11                 |5.0               |\n|1997|11   |Pop        |8                  |5.0               |\n|1998|2    |Books      |2009               |4.377520377520377 |\n|1998|2    |Movies & TV|23                 |4.791666666666667 |\n|1998|2    |Movies     |22                 |4.826086956521739 |\n|1998|2    |CDs & Vinyl|18                 |4.809523809523809 |\n|1998|2    |Pop        |13                 |4.75              |\n|2005|5    |Books      |15278              |4.142494856213216 |\n|2005|5    |CDs & Vinyl|8874               |4.2515930902111325|\n|2005|5    |Pop        |6932               |4.2354217776939045|\n|2005|5    |Rock       |4741               |4.180550174351027 |\n|2005|5    |Movies & TV|4483               |3.8807963398046246|\n|2007|6    |Books      |24881              |4.26611733302385  |\n|2007|6    |CDs & Vinyl|8821               |4.389266890273119 |\n|2007|6    |Pop        |6520               |4.384556379442598 |\n|2007|6    |Movies & TV|6359               |4.086139702208454 |\n|2007|6    |Electronics|4793               |3.941527319203323 |\n+----+-----+-----------+-------------------+------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://c02xh0ywjgh8-c:4047/jobs/job?id=14",
+              "$$hashKey": "object:11956"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607178622953_1443861615",
+      "id": "paragraph_1607178622953_1443861615",
+      "dateCreated": "2020-12-05T15:30:22+0100",
+      "dateStarted": "2020-12-05T21:43:38+0100",
+      "dateFinished": "2020-12-05T21:43:39+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:9551"
+    },
+    {
+      "text": "val ratingsCsv = topCategoryRatings.where($\"year\".isNotNull and $\"month\".isNotNull).orderBy($\"year\", $\"month\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-12-05T21:44:30+0100",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mratingsCsv\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [year: int, month: int ... 3 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607178703790_579888915",
+      "id": "paragraph_1607178703790_579888915",
+      "dateCreated": "2020-12-05T15:31:43+0100",
+      "dateStarted": "2020-12-05T21:44:30+0100",
+      "dateFinished": "2020-12-05T21:44:31+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:9554"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607201124253_1887512488",
+      "id": "paragraph_1607201124253_1887512488",
+      "dateCreated": "2020-12-05T21:45:24+0100",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:12130",
+      "text": "ratingsCsv.createOrReplaceTempView(\"ratings\")",
+      "dateUpdated": "2020-12-05T21:45:31+0100",
+      "dateFinished": "2020-12-05T21:45:32+0100",
+      "dateStarted": "2020-12-05T21:45:31+0100",
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607201133366_2103769250",
+      "id": "paragraph_1607201133366_2103769250",
+      "dateCreated": "2020-12-05T21:45:33+0100",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:12208",
+      "text": "%md\n## Query data using spark sql",
+      "dateUpdated": "2020-12-05T21:45:54+0100",
+      "dateFinished": "2020-12-05T21:45:54+0100",
+      "dateStarted": "2020-12-05T21:45:54+0100",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Query data using spark sql</h2>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%sql\n\nselect * from ratings order by year desc, month desc limit 10 ",
+      "user": "anonymous",
+      "dateUpdated": "2020-12-05T21:46:39+0100",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "year": "string",
+                      "month": "string",
+                      "category": "string",
+                      "total_sold_products": "string",
+                      "average_rating": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://c02xh0ywjgh8-c:4047/jobs/job?id=16",
+              "$$hashKey": "object:13248"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607201156260_2063222512",
+      "id": "paragraph_1607201156260_2063222512",
+      "dateCreated": "2020-12-05T21:45:56+0100",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:12295",
+      "dateFinished": "2020-12-05T21:46:40+0100",
+      "dateStarted": "2020-12-05T21:46:39+0100",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "year\tmonth\tcategory\ttotal_sold_products\taverage_rating\n2014\t7\tClothing, Shoes & Jewelry\t120295\t4.143594982440295\n2014\t7\tKindle eBooks\t54053\t4.3045375993005415\n2014\t7\tWomen\t69187\t4.080421384984365\n2014\t7\tBooks\t154189\t4.3611692441497025\n2014\t7\tKindle Store\t54386\t4.302357415474248\n2014\t6\tWomen\t75939\t4.064947002371877\n2014\t6\tBooks\t209545\t4.351954197968031\n2014\t6\tKindle Store\t66684\t4.298993773596312\n2014\t6\tKindle eBooks\t66297\t4.3015807567796465\n2014\t6\tClothing, Shoes & Jewelry\t130205\t4.1108299424644095\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607201089965_1002680202",
+      "id": "paragraph_1607201089965_1002680202",
+      "dateCreated": "2020-12-05T21:44:49+0100",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:12043",
+      "text": "%md\n\n## Write dataset as csv for importing into other visualization tools",
+      "dateUpdated": "2020-12-05T21:45:13+0100",
+      "dateFinished": "2020-12-05T21:45:13+0100",
+      "dateStarted": "2020-12-05T21:45:13+0100",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Write dataset as csv for importing into other visualization tools</h2>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "ratingsCsv.repartition(1).write.option(\"header\", \"true\").csv(s\"hdfs://localhost:9000/data/csv/ratings\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-12-05T21:48:32+0100",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://c02xh0ywjgh8-c:4047/jobs/job?id=19",
+              "$$hashKey": "object:14130"
+            },
+            {
+              "jobUrl": "http://c02xh0ywjgh8-c:4047/jobs/job?id=20",
+              "$$hashKey": "object:14131"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607178827446_1820236460",
+      "id": "paragraph_1607178827446_1820236460",
+      "dateCreated": "2020-12-05T15:33:47+0100",
+      "dateStarted": "2020-12-05T21:48:32+0100",
+      "dateFinished": "2020-12-05T21:48:33+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:9556"
+    },
+    {
+      "user": "anonymous",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1607201282681_1251065719",
+      "id": "paragraph_1607201282681_1251065719",
+      "dateCreated": "2020-12-05T21:48:02+0100",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:13980"
+    }
+  ],
+  "name": "AmazonReviewsDemo",
+  "id": "2FUCQTFNX",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/AmazonReviews/AmazonReviewsDemo"
+}
