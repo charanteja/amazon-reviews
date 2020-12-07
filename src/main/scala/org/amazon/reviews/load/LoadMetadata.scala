@@ -21,8 +21,9 @@ object LoadMetadata extends RunSpark {
       .json(s"${config.sourceDir}")
       .drop("salesRank", "_corrupt_record")
       .as[Metadata]
+    logger.info(s"Printing metadata schema: ${metadata.printSchema}")
 
-    logger.info("Writing reviews data in micro batch mode")
+    logger.info("Writing metadata data in micro batch mode")
     //TODO Optimize window size
     /**
       * Stream is processed in micro-batch mode

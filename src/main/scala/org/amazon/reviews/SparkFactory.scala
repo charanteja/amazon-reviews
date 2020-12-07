@@ -6,7 +6,7 @@ object SparkFactory {
 
   lazy val sparkSession: SparkSession = SparkSession
       .builder()
-      .appName("Spark App")
+      .appName("Amazon Reviews Session")
       .enableHiveSupport()
       .getOrCreate()
 

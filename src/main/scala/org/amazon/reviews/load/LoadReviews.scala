@@ -24,6 +24,7 @@ object LoadReviews extends RunSpark {
       .json(s"${config.sourceDir}")
       .withColumn("reviewTimestamp", $"unixReviewTime".cast(TimestampType))
       .as[Review]
+    logger.info(s"Printing reviews schema: ${reviews.printSchema}")
 
     logger.info("Writing reviews data in micro batch mode")
     //TODO Optimize window size

@@ -6,16 +6,16 @@ Repository contains POC concepts for downloading and processing Amazon Reviews D
 * Install Hadoop
 * Install Spark
 
-### Building the project
-To build the project, please run:
-```
-sbt assembly
-```
-
 ### Testing the project
 To run tests, please run:
 ```
 sbt test
+```
+
+### Building the project
+To build the project, please run:
+```
+sbt assembly
 ```
 It will create a fat jar inside `target` folder
 
@@ -23,7 +23,7 @@ It will create a fat jar inside `target` folder
 To proceed with next steps, it is assumed there is running hadoop cluster at `hdfs://localhost:9000/`
 ### Submit Spark Jobs
 Once you have the assembly jar, you can submit spark jobs using this syntax.
-Other examples can be found [here](kubernetes/charts/config)
+Other examples can be found [here](kubernetes/charts/amazon-reviews/config)
 
 For example, to run load reviews spark job:
 ```
@@ -51,23 +51,23 @@ To deploy in Kubernetes, you need to install [helm](https://helm.sh/docs/intro/i
 helm install amazon-reviews kubernetes/charts/amazon-reviews
 ```
 Since the chart uses Argo workflows, these CRDs should be present in kubernetes environment.
-Argo can be installed from [here](https://argoproj.github.io/argo/)
+Argo workflows can be installed from [here](https://argoproj.github.io/argo/)
 
-You should also have running Spark and Hadoop clusters in kubernetes to submit spark jobs and manage DFS
+You should also have running Spark and Hadoop clusters in kubernetes  environment to submit spark jobs and manage DFS
+
 ### Analyzing data
 To do quick analysis of data, we can start a new zeppelin server
 Zeppelin has a notebook based interface and supports a range of interpreters
 More info about zeppelin can be found [here](https://zeppelin.apache.org/)
 
-To start zeppelin server: `bin/zeppelin-daemon.sh start`
+To start zeppelin server, from zeppelin home folder run: `bin/zeppelin-daemon.sh start`
 
 Access zeppelin UI here: `http://localhost:8080/`
 
 Link to sample [zeppelin notebook](notebooks/AmazonReviewsDemo.zpln)
 
-Same notebook can be opened in [iPython](notebooks/AmazonReviewsDemo.ipynb)
-
 ### References
-* Project on spark structured streaming concept:
+* Spark structured streaming concepts programming guide:
 https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html
-* Argo workflows was used for pipeline orchestration: https://argoproj.github.io/argo/
+* Argo workflows was used for pipeline orchestration:
+https://argoproj.github.io/argo/

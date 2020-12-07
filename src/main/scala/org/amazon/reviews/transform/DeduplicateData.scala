@@ -28,15 +28,19 @@ object DeduplicateData extends RunSpark {
 
     logger.info("Reading reviews data")
     val reviews: Dataset[Review] = spark.read.parquet(s"${config.sourceDir}/reviews").as[Review]
+    logger.info(s"Number of reviews rows before deduplication: ${reviews.count}")
 
     logger.info("Reading metadata data")
     val metadata: Dataset[Metadata] = spark.read.parquet(s"${config.sourceDir}/metadata").as[Metadata]
+    logger.info(s"Number of metadata rows before deduplication: ${metadata.count}")
 
     logger.info("Deduplicating reviews data")
     val distinctReviews: Dataset[Review] = deduplicate[Review](reviews)
+    logger.info(s"Number of reviews rows after deduplication: ${distinctReviews.count}")
 
     logger.info("Deduplicating metadata data")
     val distinctMetadata: Dataset[Metadata] = deduplicate[Metadata](metadata)
+    logger.info(s"Number of metadata rows after deduplication: ${distinctMetadata.count}")
 
     /**
       * Repartition data to make sure data is distributed
